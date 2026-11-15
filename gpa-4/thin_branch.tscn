@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cxry1jubgmeyx"]
+
+[ext_resource type="Script" uid="uid://c5o2iy31vjnqn" path="res://thin_branch.gd" id="1_yr3c8"]
+[ext_resource type="Texture2D" uid="uid://iymcec1dwu2p" path="res://thin_branch.png" id="2_q2627"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48qg"]
+size = Vector2(143.5, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycdy4"]
+size = Vector2(132.25, 101.75)
+
+[node name="ThinBranch1" type="CharacterBody2D" unique_id=1567892727]
+script = ExtResource("1_yr3c8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=536297748]
+scale = Vector2(6, 6)
+texture = ExtResource("2_q2627")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1530309935]
+position = Vector2(24.75, -48.5)
+shape = SubResource("RectangleShape2D_w48qg")
+
+[node name="thinbranch" type="Area2D" parent="." unique_id=856978872 groups=["branch"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="thinbranch" unique_id=780834816 groups=["branch"]]
+position = Vector2(24.75, -48.5)
+shape = SubResource("RectangleShape2D_ycdy4")
+
+[connection signal="area_entered" from="thinbranch" to="." method="_on_thinbranch_area_entered"]
